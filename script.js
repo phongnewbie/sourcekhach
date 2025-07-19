@@ -410,3 +410,53 @@ if (nutKhamPha) {
     taoConfetti();
   });
 }
+
+// Định nghĩa openModal cho tương thích với HTML cũ
+function openModal(idx) {
+  if (typeof moPopup === 'function') moPopup(idx);
+}
+
+// Gán sự kiện click cho các nút 'Xem chi tiết' để mở modal
+window.addEventListener('DOMContentLoaded', function() {
+  const detailButtons = document.querySelectorAll('button.artifact-detail-button');
+  detailButtons.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      // Lấy id hiện vật từ openModal('...') trong onclick
+      const onclickAttr = btn.getAttribute('onclick');
+      if (onclickAttr && onclickAttr.includes('openModal')) {
+        e.preventDefault();
+        // Lấy tham số truyền vào openModal
+        const match = onclickAttr.match(/openModal\(['\"]?(\w+)['\"]?\)/);
+        if (match && match[1]) {
+          openModal(match[1]);
+        }
+      }
+    });
+  });
+});
+
+// Gán sự kiện click cho các nút 'Tìm hiểu thêm' để chuyển trang
+window.addEventListener('DOMContentLoaded', function() {
+  const links = document.querySelectorAll('a.btn-secondary');
+  // Danh sách các trang chi tiết tương ứng thứ tự các nút
+  const detailPages = [
+    'info1.html',
+    'info2.html',
+    'info3.html',
+    'info4.html',
+    'info5.html',
+    'info6.html',
+    'info7.html',
+    'info8.html',
+    'info9.html',
+    'info10.html'
+  ];
+  links.forEach(function(link, idx) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (detailPages[idx]) {
+        window.location.href = detailPages[idx];
+      }
+    });
+  });
+});
