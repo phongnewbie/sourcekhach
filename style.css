@@ -158,11 +158,15 @@ main {
     gap: 10px;
 }
 .cards {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-    margin-top: 24px;
-    justify-content: center;
+    display: grid;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  justify-content: center;
+  grid-template-columns: repeat(2,2fr);
+  width: 80%;
+  margin-left: 20%;
+  
 }
 .card {
     background: #fff;
@@ -1634,3 +1638,5 @@ footer h3, footer p, footer a {
     font-size: 1rem;
   }
 }
+
+

@@ -442,14 +442,27 @@ window.addEventListener('DOMContentLoaded', function() {
   const detailPages = [
     'info1.html',
     'info2.html',
+    'info12.html',
+    'info13.html',
+    // 'info6.html', hội an
     'info3.html',
     'info4.html',
-    'info5.html',
-    'info6.html',
-    'info7.html',
-    'info8.html',
-    'info9.html',
-    'info10.html'
+    'info14.html',
+    'info11.html',
+    'info15.html',
+     'info6.html',
+    'info17.html',
+     'info18.html', 
+     'info7.html',
+     'info8.html',
+     'info19.html',
+     'info20.html',
+     'info9.html',
+     'info10.html',
+     'info21.html',
+     'info22.html',
+
+
   ];
   links.forEach(function(link, idx) {
     link.addEventListener('click', function(e) {
