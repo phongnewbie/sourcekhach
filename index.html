@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Việt Nam - Tinh Hoa & Giá Trị</title>
     <link rel="stylesheet" href="style.css">
@@ -11,7 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
-<body>
+<body  style="background-color: #e0f7fa;">
+    <div class="bubble-bg"></div>
     <header class="header sticky">
         <nav class="navbar">
             <div class="logo"><i class="fa-solid fa-leaf"></i> Việt Nam Tinh Hoa</div>
@@ -453,5 +454,25 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script>
+        // Hiệu ứng tạo bubble động nền
+        (function() {
+          const bubbleBg = document.querySelector('.bubble-bg');
+          if (!bubbleBg) return;
+          const bubbleCount = 18;
+          for (let i = 0; i < bubbleCount; i++) {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            const size = Math.random() * 60 + 40; // 40-100px
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${Math.random() * 100}%`;
+            bubble.style.bottom = `-${size + Math.random()*40}px`;
+            bubble.style.animationDuration = `${14 + Math.random()*8}s`;
+            bubble.style.animationDelay = `${Math.random()*8}s`;
+            bubbleBg.appendChild(bubble);
+          }
+        })();
+        </script>
 </body>
 </html> 
